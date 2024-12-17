@@ -1,13 +1,7 @@
 /** @format */
 
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  Touchable,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { Link } from 'expo-router';
 import { defaultStyles } from '@/constants/Styles';

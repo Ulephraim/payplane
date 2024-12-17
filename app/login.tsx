@@ -12,7 +12,6 @@ import {
 import React, { useState } from 'react';
 import { defaultStyles } from '@/constants/Styles';
 import Colors from '@/constants/Colors';
-import { Link, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 enum SignInType {

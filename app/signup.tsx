@@ -19,12 +19,8 @@ const signup = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 90 : 0;
 
-  // const onSignUp = async () => {
-
-  // };
-
   const onSignUp = () => {
-    router.replace('/(auth)/(tabs)/home');
+    router.replace('/(auth)/(tabs)/invest');
   };
 
   return (

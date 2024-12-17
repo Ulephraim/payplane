@@ -3,6 +3,7 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
+import CustomHeader from '@/components/CustomHeader';
 
 const Layout = () => {
   return (
@@ -18,6 +19,7 @@ const Layout = () => {
           tabBarIcon: ({ size, color }) => (
             <FontAwesome name="registered" size={size} color={color} />
           ),
+          header: () => <CustomHeader />,
         }}
       />
       <Tabs.Screen

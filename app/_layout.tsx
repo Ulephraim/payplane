@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { Link, router, Stack, useRouter } from 'expo-router';
+import { Link, Stack, useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 import { TouchableOpacity } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';

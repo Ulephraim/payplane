@@ -1,11 +1,20 @@
 /** @format */
 import { View, Text } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { Currency } from '@/interfaces/crypto';
 
 const crypto = () => {
+  const currencies = useQuery({
+    queryKey: ['currencies'],
+    queryFn: () => fetch('/api/listings').then((res) => res.json()),
+  });
+
   return (
     <View>
-      <Text>crypto</Text>
+      {currencies.data?.map((currency: Currency) => {
+        <Text key={currency.id}>{currency.name}</Text>;
+      })}
     </View>
   );
 };

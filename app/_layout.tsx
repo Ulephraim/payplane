@@ -7,6 +7,9 @@ import { TouchableOpacity } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const InitialLayout = () => {
   const [loaded, error] = useFonts({
@@ -70,10 +73,10 @@ const InitialLayout = () => {
 
 const RootLayoutNav = () => {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <StatusBar style="dark" />
       <InitialLayout />
-    </>
+    </QueryClientProvider>
   );
 };
 

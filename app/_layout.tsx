@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link, Stack, useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
@@ -67,6 +67,40 @@ const InitialLayout = () => {
         options={{ title: 'Help', presentation: 'modal' }}
       />
       <Stack.Screen name="(auth)/(tabs)" options={{ headerShown: false }} />
+
+      <Stack.Screen
+        name="(auth)/crypto/[id]"
+        options={{
+          title: '',
+          headerStyle: { backgroundColor: Colors.background },
+          headerLeft: () => (
+            <TouchableOpacity onPress={router.back}>
+              <Ionicons name="arrow-back" size={34} color={Colors.dark} />
+            </TouchableOpacity>
+          ),
+          headerLargeTitle: true,
+          headerTransparent: true,
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: 'row',
+                gap: 10,
+              }}
+            >
+              <TouchableOpacity>
+                <Ionicons
+                  name="notifications-outline"
+                  color={Colors.dark}
+                  size={30}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Ionicons name="star-outline" color={Colors.dark} size={30} />
+              </TouchableOpacity>
+            </View>
+          ),
+        }}
+      />
     </Stack>
   );
 };

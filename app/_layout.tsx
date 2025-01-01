@@ -8,6 +8,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { UserInactivityProvider } from '@/context/userInActivity';
 
 const queryClient = new QueryClient();
 
@@ -101,6 +102,25 @@ const InitialLayout = () => {
           ),
         }}
       />
+
+      <Stack.Screen
+        name="(auth)/(modals)/lock"
+        options={{ headerShown: false, animation: 'none' }}
+      />
+      <Stack.Screen
+        name="(auth)/(modals)/account"
+        options={{
+          presentation: 'transparentModal',
+          animation: 'fade',
+          title: '',
+          headerTransparent: true,
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <Ionicons name="close-outline" size={34} color={'#fff'} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </Stack>
   );
 };
@@ -108,8 +128,10 @@ const InitialLayout = () => {
 const RootLayoutNav = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="dark" />
-      <InitialLayout />
+      <UserInactivityProvider>
+        <StatusBar style="dark" />
+        <InitialLayout />
+      </UserInactivityProvider>
     </QueryClientProvider>
   );
 };

@@ -11,17 +11,21 @@ import React from 'react';
 import Colors from '@/constants/Colors';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { Link } from 'expo-router';
 
 const CustomHeader = () => {
   const { top } = useSafeAreaInsets();
   return (
     <View style={{ paddingTop: top }}>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.roundButton}>
-          <Text style={{ color: '#fff', fontWeight: '500', fontSize: 16 }}>
-            SG
-          </Text>
-        </TouchableOpacity>
+        <Link href="/(auth)/(modals)/account" asChild>
+          <TouchableOpacity style={styles.roundButton}>
+            <Text style={{ color: '#fff', fontWeight: '500', fontSize: 16 }}>
+              SG
+            </Text>
+          </TouchableOpacity>
+        </Link>
+
         <View style={styles.searchSection}>
           <Ionicons
             style={styles.searchIcon}
